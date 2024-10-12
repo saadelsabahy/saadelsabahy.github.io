@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saad Elsabahy's Game Portfolio</title>
+    <!-- Link to Google Fonts for 'Orbitron' -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #1b1b1b;
+        color: #00ff00;
+        font-family: 'Orbitron', sans-serif;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        border: 3px solid #00ff00;
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: black;
+      }
+
+      .button {
+        background-color: #00ff00;
+        color: black;
+        border: none;
+        padding: 15px 25px;
+        margin: 15px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+        font-family: 'Orbitron', sans-serif;
+      }
+
+      .button:hover,
+      .button.selected {
+        background-color: black;
+        color: #00ff00;
+        border: 3px solid #00ff00;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 20px 0;
+      }
+
+      ul li {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      @keyframes glitch {
+        0% {
+          text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00;
+        }
+        50% {
+          text-shadow: -2px -2px 0 #ff00ff, 2px 2px 0 #ff00ff;
+        }
+        100% {
+          text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00;
+        }
+      }
+
+      h1 {
+        animation: glitch 1s infinite;
+      }
+
+      /* Marquee Title */
+      marquee {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      a {
+        color: #00ff00;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* Professional, gaming-inspired styling */
+      .section-title {
+        font-size: 28px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      p,
+      ul li {
+        font-size: 18px;
+        color: #cccccc;
+      }
+
+      ul li strong {
+        color: #00ff00;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 26px;
+        }
+
+        .container {
+          padding: 15px;
+          max-width: 100%;
+        }
+
+        .button {
+          font-size: 12px;
+          padding: 12px 20px;
+          margin: 10px;
+        }
+
+        p,
+        ul li {
+          font-size: 16px;
+        }
+
+        marquee {
+          font-size: 20px;
+        }
+
+        .section-title {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 22px;
+        }
+
+        .button {
+          font-size: 10px;
+          padding: 10px 15px;
+          margin: 8px;
+        }
+
+        p,
+        ul li {
+          font-size: 14px;
+        }
+
+        marquee {
+          font-size: 18px;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Marquee Title -->
+    <marquee>Welcome to Saad Elsabahy's Retro Professional Portfolio</marquee>
+
+    <h1>Saad Elsabahy's Pixel Portfolio</h1>
+
+    <div class="container">
+      <p>Welcome, player! Choose your mission below:</p>
+
+      <button
+        class="button selected"
+        id="mission1"
+        onclick="toggleSection('about', this)"
+      >
+        Mission 1: Get to Know Me
+      </button>
+      <button
+        class="button"
+        id="mission2"
+        onclick="toggleSection('skills', this)"
+      >
+        Mission 2: My Skills
+      </button>
+      <button
+        class="button"
+        id="mission3"
+        onclick="toggleSection('projects', this)"
+      >
+        Mission 3: My Projects
+      </button>
+      <button
+        class="button"
+        id="mission4"
+        onclick="toggleSection('soft-skills', this)"
+      >
+        Mission 4: Soft Skills & Competencies
+      </button>
+      <button
+        class="button"
+        id="mission5"
+        onclick="toggleSection('companies', this)"
+      >
+        Mission 5: My Companies
+      </button>
+
+      <!-- About Section (Opened by Default) -->
+      <div id="about">
+        <h2 class="section-title">Mission 1: Get to Know Me</h2>
+        <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
+        <p>
+          <strong>Contact:</strong>
+          <a href="tel:+966554274124">(+966) 55 427 4124</a> |
+          <a href="mailto:saadelsabahy11@gmail.com">saadelsabahy11@gmail.com</a>
+        </p>
+        <p>
+          <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/"
+            >LinkedIn Profile</a
+          >
+          | <a href="https://github.com/saadelsabahy">GitHub Profile</a>
+        </p>
+      </div>
+
+      <!-- Skills Section -->
+      <div id="skills" class="hidden">
+        <h2 class="section-title">Mission 2: My Skills</h2>
+        <ul>
+          <li>
+            <strong>JavaScript & TypeScript:</strong> Expert in both front-end
+            and mobile app development using cutting-edge JavaScript frameworks.
+          </li>
+          <li>
+            <strong>React & React Native:</strong> Building intuitive, scalable
+            user interfaces for both web and mobile platforms.
+          </li>
+          <li>
+            <strong>State Management:</strong> Redux, MobX, Context API for
+            powerful, efficient state handling in large-scale applications.
+          </li>
+          <li>
+            <strong>API Integration:</strong> Proficient in REST APIs, GraphQL,
+            and Firebase integration.
+          </li>
+          <li>
+            <strong>Testing:</strong> Ensuring software quality with Jest, React
+            Testing Library.
+          </li>
+          <li>
+            <strong>CI/CD Pipelines:</strong> Expertise with Jenkins, GitLab
+            CI/CD for automated testing and deployment.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Projects Section -->
+      <div id="projects" class="hidden">
+        <h2 class="section-title">Mission 3: My Projects</h2>
+        <ul>
+          <li>
+            <a
+              href="https://www.riyadbank.com/en/personal/digital-banking/mobile-app"
+              target="_blank"
+              ><strong>Riyad Bank App</strong></a
+            >: Led the development of a secure, customer-centric mobile banking
+            solution.
+          </li>
+          <li>
+            <a href="#" target="_blank"><strong>HealthOne NOVA</strong></a
+            >: Developed a cloud healthcare solution for the Belgium government,
+            facilitating better patient care.
+          </li>
+          <li>
+            <a href="#" target="_blank"><strong>TAMM Portal</strong></a
+            >: Created a cloud-based HR portal for the UAE, streamlining job
+            applications and tracking.
+          </li>
+          <li>
+            <a href="https://expandcart.com/" target="_blank"
+              ><strong>ExpandCart E-Commerce Template</strong></a
+            >: Built a customizable e-commerce platform for quick deployment and
+            secure payments.
+          </li>
+          <li>
+            <a href="#" target="_blank"><strong>Smart Lab</strong></a
+            >: Managed a smart solution for automating lab attendance and device
+            control.
+          </li>
+          <li>
+            <a href="#" target="_blank"><strong>Noonmar App</strong></a
+            >: Developed an e-commerce app for Noonmar, integrating
+            authentication, cart management, and payment.
+          </li>
+          <li>
+            <a href="#" target="_blank"><strong>Baby Care App</strong></a
+            >: Created a babysitting app with chat, booking, and payment
+            features.
+          </li>
+          <li>
+            <a href="#" target="_blank"><strong>Auction App</strong></a
+            >: Designed a real-time auction platform for vehicle sales.
+          </li>
+          <li>
+            <a href="#" target="_blank"
+              ><strong>Nile School Parent App</strong></a
+            >: Built an app for student attendance tracking and parental
+            notifications.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Soft Skills & Competencies Section -->
+      <div id="soft-skills" class="hidden">
+        <h2 class="section-title">Mission 4: Soft Skills & Competencies</h2>
+        <ul>
+          <li>
+            <strong>Leadership:</strong> Building and mentoring high-performance
+            development teams that deliver high-quality projects on time.
+          </li>
+          <li>
+            <strong>Collaboration:</strong> Working cross-functionally with
+            product, design, and backend teams to create cohesive user
+            experiences.
+          </li>
+          <li>
+            <strong>Project Management:</strong> Skilled in managing timelines
+            and aligning team efforts to deliver exceptional software.
+          </li>
+          <li>
+            <strong>Communication:</strong> Strong interpersonal and
+            communication skills for engaging with stakeholders and team
+            members.
+          </li>
+          <li>
+            <strong>Problem-Solving:</strong> Analytical thinking for
+            identifying and resolving complex technical issues.
+          </li>
+          <li>
+            <strong>Adaptability:</strong> Thrives in dynamic, fast-paced
+            environments, responding quickly to changing requirements.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Companies Section -->
+      <div id="companies" class="hidden">
+        <h2 class="section-title">Mission 5: My Companies</h2>
+        <ul>
+          <li>
+            <strong>Frontend Team Lead - Riyad Bank:</strong> Riyadh, KSA (Sep
+            2023 - Present)
+          </li>
+          <li>
+            <strong>Senior Frontend Developer - Cegedim:</strong> Cairo, Egypt
+            (May 2022 - Sep 2023)
+          </li>
+          <li>
+            <strong>Software Engineer (Part-time) - Musala Soft:</strong> Sofia,
+            Bulgaria (Dec 2021 - Sep 2022)
+          </li>
+          <li>
+            <strong>React Native Developer - ExpandCart:</strong> Cairo, Egypt
+            (Dec 2021 - Sept 2022)
+          </li>
+          <li>
+            <strong>React Native Developer - Evision:</strong> Cairo, Egypt (Feb
+            2020 - Dec 2020)
+          </li>
+          <li>
+            <strong>React Native Developer - X_Cortex:</strong> Gharbia, Egypt
+            (Sep 2019 - Feb 2020)
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // Function to toggle sections, closing and opening on click
+      function toggleSection(id, button) {
+        const section = document.getElementById(id);
+        const isHidden = section.classList.contains('hidden');
+
+        // Hide all sections and deselect buttons
+        const sections = document.querySelectorAll('.container > div');
+        sections.forEach((section) => section.classList.add('hidden'));
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach((btn) => btn.classList.remove('selected'));
+
+        // If the section was hidden, show it and mark the button as selected
+        if (isHidden) {
+          section.classList.remove('hidden');
+          button.classList.add('selected');
+        }
+      }
+
+      // Set the first mission as opened by default
+      document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('mission1').classList.add('selected');
+      });
+    </script>
+  </body>
+</html>
