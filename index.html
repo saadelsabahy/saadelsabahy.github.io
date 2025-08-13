@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Saad Elsabahy's Game Portfolio</title>
+    <title>Saad Elsabahy - Frontend Team Lead</title>
     <!-- Link to Google Fonts for 'Orbitron' -->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
@@ -41,12 +41,15 @@
         background-color: #00ff00;
         color: black;
         border: none;
-        padding: 15px 25px;
-        margin: 15px;
+        padding: 10px 15px;
+        margin: 8px 5px;
         cursor: pointer;
         font-size: 14px;
-        transition: all 0.3s;
+        transition: all 0.3s ease;
         font-family: 'Orbitron', sans-serif;
+        white-space: nowrap;
+        transform: translateZ(0);
+        will-change: transform;
       }
 
       .button:hover,
@@ -54,10 +57,18 @@
         background-color: black;
         color: #00ff00;
         border: 3px solid #00ff00;
+        transform: scale(1.05) translateZ(0);
       }
 
       .hidden {
         display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .visible {
+        display: block;
+        opacity: 1;
       }
 
       ul {
@@ -68,10 +79,14 @@
 
       ul li {
         margin-bottom: 10px;
+        text-align: left;
+        line-height: 1.5;
       }
 
       p {
         margin-bottom: 20px;
+        text-align: left;
+        line-height: 1.5;
       }
 
       @keyframes glitch {
@@ -94,14 +109,17 @@
       marquee {
         font-size: 24px;
         margin-bottom: 20px;
+        color: #00ff00;
       }
 
       a {
         color: #00ff00;
         text-decoration: none;
+        transition: color 0.3s ease;
       }
 
       a:hover {
+        color: #00ff00;
         text-decoration: underline;
       }
 
@@ -110,16 +128,64 @@
         font-size: 28px;
         text-transform: uppercase;
         margin-bottom: 20px;
+        color: #00ff00;
       }
 
       p,
       ul li {
-        font-size: 18px;
+        font-size: 16px;
         color: #cccccc;
       }
 
-      ul li strong {
+      ul li strong,
+      .company-name {
         color: #00ff00;
+      }
+
+      .job-title {
+        margin-bottom: 5px;
+      }
+
+      .job-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 5px;
+        margin-bottom: 5px;
+      }
+
+      .job-period {
+        color: #cccccc;
+        font-size: 14px;
+      }
+
+      .project-item {
+        margin-bottom: 15px;
+      }
+
+      .project-title {
+        display: inline-block;
+        margin-bottom: 5px;
+      }
+
+      .buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        margin-bottom: 15px;
+      }
+
+      .company-link {
+        color: #00ff00;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .company-link:hover {
+        transform: scale(1.02);
+        text-decoration: underline;
       }
 
       /* Responsive adjustments */
@@ -135,13 +201,12 @@
 
         .button {
           font-size: 12px;
-          padding: 12px 20px;
-          margin: 10px;
+          padding: 8px 12px;
         }
 
         p,
         ul li {
-          font-size: 16px;
+          font-size: 15px;
         }
 
         marquee {
@@ -159,9 +224,9 @@
         }
 
         .button {
-          font-size: 10px;
-          padding: 10px 15px;
-          margin: 8px;
+          font-size: 11px;
+          padding: 6px 10px;
+          margin: 5px 3px;
         }
 
         p,
@@ -176,57 +241,50 @@
         .section-title {
           font-size: 20px;
         }
+
+        .job-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
       }
     </style>
   </head>
   <body>
     <!-- Marquee Title -->
-    <marquee>Welcome to Saad Elsabahy's Retro Professional Portfolio</marquee>
+    <marquee>Welcome to Saad Elsabahy's Professional Portfolio</marquee>
 
-    <h1>Saad Elsabahy's Pixel Portfolio</h1>
+    <h1>Saad Elsabahy</h1>
 
     <div class="container">
-      <p>Welcome, player! Choose your mission below:</p>
+      <p>Frontend Team Lead with robust technical background in React | React Native  and leadership experience</p>
 
-      <button
-        class="button selected"
-        id="mission1"
-        onclick="toggleSection('about', this)"
-      >
-        Mission 1: Get to Know Me
-      </button>
-      <button
-        class="button"
-        id="mission2"
-        onclick="toggleSection('skills', this)"
-      >
-        Mission 2: My Skills
-      </button>
-      <button
-        class="button"
-        id="mission3"
-        onclick="toggleSection('projects', this)"
-      >
-        Mission 3: My Projects
-      </button>
-      <button
-        class="button"
-        id="mission4"
-        onclick="toggleSection('soft-skills', this)"
-      >
-        Mission 4: Soft Skills & Competencies
-      </button>
-      <button
-        class="button"
-        id="mission5"
-        onclick="toggleSection('companies', this)"
-      >
-        Mission 5: My Companies
-      </button>
+      <div class="buttons-container">
+        <button class="button selected" id="mission1" onclick="toggleSection('about', this)">
+          Contact & Summary
+        </button>
+        <button class="button" id="mission2" onclick="toggleSection('experience', this)">
+          Work Experience
+        </button>
+        <button class="button" id="mission3" onclick="toggleSection('skills', this)">
+          Technical Skills
+        </button>
+        <button class="button" id="mission4" onclick="toggleSection('soft-skills', this)">
+          Soft Skills
+        </button>
+        <button class="button" id="mission5" onclick="toggleSection('education', this)">
+          Education
+        </button>
+        <button class="button" id="mission6" onclick="toggleSection('projects', this)">
+          Projects
+        </button>
+        <button class="button" id="mission7" onclick="toggleSection('languages', this)">
+          Languages
+        </button>
+      </div>
 
       <!-- About Section (Opened by Default) -->
-      <div id="about">
-        <h2 class="section-title">Mission 1: Get to Know Me</h2>
+      <div id="about" class="visible">
+        <h2 class="section-title">Contact & Summary</h2>
         <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
         <p>
           <strong>Contact:</strong>
@@ -234,180 +292,249 @@
           <a href="mailto:saadelsabahy11@gmail.com">saadelsabahy11@gmail.com</a>
         </p>
         <p>
-          <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/"
-            >LinkedIn Profile</a
-          >
-          | <a href="https://github.com/saadelsabahy">GitHub Profile</a>
+          <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/">LinkedIn Profile</a> | 
+          <a href="https://github.com/saadelsabahy">GitHub Profile</a>
         </p>
+<!--         
+        <h3>Summary</h3> -->
+        <!-- <p>Frontend React/React Native Team Lead with a robust technical background and a proven track record in leadership. I possess extensive experience in managing development teams, spearheading innovative projects, and delivering high-quality web and mobile applications. Highly skilled in mentoring developers and fostering collaboration across departments, I ensure timely project delivery while maintaining software excellence. Recognized for my expertise in JavaScript, React, and modern development methodologies, I am eager to lead teams and contribute to transformative projects that require both technical acumen and effective leadership.</p> -->
+      </div>
+
+      <!-- Experience Section -->
+      <div id="experience" class="hidden">
+        <h2 class="section-title">Work Experience</h2>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>Frontend Team Lead</strong> |
+            <a href="https://www.alrajhibank.com.sa/" target="_blank" class="company-link company-name">Alrajhi Bank</a>
+            <span class="job-period">| Riyadh, KSA | Jan 2024 - Present</span>
+          </div>
+          <ul>
+            <li>Guide and support the front-end team, helping them improve skills and work efficiency.</li>
+            <li>Work closely with project managers to match development work with project plans and goals.</li>
+            <li>Review code to keep it clean, reliable, and in line with best practices.</li>
+            <li>Encourage teamwork and good communication between different departments.</li>
+            <li>Plan and set up the front-end structure and tools to meet business needs.</li>
+            <li>Help shape the bank's tech direction by creating a common starter template for all apps and reusing code through shared libraries.</li>
+          </ul>
+        </div>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>Frontend Team Lead</strong> |
+            <a href="https://www.riyadbank.com/" target="_blank" class="company-link company-name">Riyad Bank</a>
+            <span class="job-period">| Riyadh, KSA | Sep 2023 - Jan 2024</span>
+          </div>
+          <ul>
+            <li>Lead and mentor a front-end development team, enhancing skills and performance through training and guidance.</li>
+            <li>Coordinate with project managers to align development goals with project timelines and objectives.</li>
+            <li>Conduct code reviews to ensure high standards of code quality and adherence to best practices.</li>
+            <li>Foster a collaborative team environment, facilitating effective cross-departmental communication.</li>
+            <li>Develop and implement front-end architecture and technology strategies in line with business goals.</li>
+            <li>Contributed to long-term technology roadmaps, aligning frontend development strategies with organizational objectives to ensure sustainable growth by building boilerplate for all apps in Riyadbank and utilizing all possible reusable code in libraries.</li>
+          </ul>
+        </div>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>Senior Frontend Developer</strong> |
+            <a href="https://www.cegedim.com/" target="_blank" class="company-link company-name">Cegedim</a>
+            <span class="job-period">| Cairo, EG | May 2022 - Sep 2023</span>
+          </div>
+          <ul>
+            <li>Spearheaded front-end development initiatives using TypeScript, React, Redux, Saga, and REST APIs, while working closely with product teams to develop innovative user experiences.</li>
+            <li>Successfully delivered high-quality, testable React components using Jest and React Testing Library, ensuring the robustness of web applications.</li>
+            <li>Actively participated in sprint planning, task prioritization, and project tracking using Jira and Confluence in an agile environment.</li>
+            <li>Fostered strong collaboration across the backend and design teams to ensure feature completeness and technical feasibility.</li>
+          </ul>
+        </div>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>Software Engineer (Part-time)</strong> |
+            <a href="https://www.musala.com/" target="_blank" class="company-link company-name">Musala Soft</a>
+            <span class="job-period">| Sofia, BG | Dec 2021 - Sep 2022</span>
+          </div>
+          <ul>
+            <li>Developed mobile applications and websites using React and React Native.</li>
+            <li>Implemented reusable UI components, improving development efficiency and code quality.</li>
+            <li>Assisted team members in enhancing their coding practices and development skills.</li>
+          </ul>
+        </div>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>React Native Developer</strong> |
+            <a href="https://expandcart.com/" target="_blank" class="company-link company-name">ExpandCart</a>
+            <span class="job-period">| Cairo, EG | Dec 2021-Sept 2022 (Part-time)</span>
+            <span class="job-period">Dec 2020 - Dec 2021 (full-time)</span>
+          </div>
+          <ul>
+            <li>Delivered and deployed high-performance mobile applications, contributing to the overall user experience and interface.</li>
+            <li>Implemented reusable UI components and optimized mobile applications for performance and scalability.</li>
+            <li>Collaborated with stakeholders to address project requirements and ensure the timely delivery of mobile app solutions.</li>
+          </ul>
+        </div>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>React Native Developer</strong> |
+            <a href="https://www.evision-eg.com/" target="_blank" class="company-link company-name">Evision</a>
+            <span class="job-period">| Cairo, EG | Feb 2020 - Dec 2020</span>
+          </div>
+          <ul>
+            <li>Worked on mobile app development using React Native, contributing to building intuitive, high-performance applications.</li>
+            <li>Collaborated with team members to ensure smooth integration of app features and shared knowledge of best practices.</li>
+          </ul>
+        </div>
+        
+        <div class="job-title">
+          <div class="job-header">
+            <strong>React Native Developer</strong> |
+            <span class="company-name">X_Cortex</span>
+            <span class="job-period">| Gharbia, EG | Sep 2019 - Feb 2020</span>
+          </div>
+          <ul>
+            <li>Developed mobile applications, focusing on reusable components and creating user-friendly experiences for end-users.</li>
+          </ul>
+        </div>
       </div>
 
       <!-- Skills Section -->
       <div id="skills" class="hidden">
-        <h2 class="section-title">Mission 2: My Skills</h2>
+        <h2 class="section-title">Technical Skills</h2>
         <ul>
-          <li>
-            <strong>JavaScript & TypeScript:</strong> Expert in both front-end
-            and mobile app development using cutting-edge JavaScript frameworks.
-          </li>
-          <li>
-            <strong>React & React Native:</strong> Building intuitive, scalable
-            user interfaces for both web and mobile platforms.
-          </li>
-          <li>
-            <strong>State Management:</strong> Redux, MobX, Context API for
-            powerful, efficient state handling in large-scale applications.
-          </li>
-          <li>
-            <strong>API Integration:</strong> Proficient in REST APIs, GraphQL,
-            and Firebase integration.
-          </li>
-          <li>
-            <strong>Testing:</strong> Ensuring software quality with Jest, React
-            Testing Library.
-          </li>
-          <li>
-            <strong>CI/CD Pipelines:</strong> Expertise with Jenkins, GitLab
-            CI/CD for automated testing and deployment.
-          </li>
+          <li><strong>Languages:</strong> JavaScript, TypeScript</li>
+          <li><strong>Mobile Development:</strong> React Native, Native Modules</li>
+          <li><strong>Markup & Styling:</strong> HTML, CSS, SASS</li>
+          <li><strong>Frontend Frameworks:</strong> React</li>
+          <li><strong>State Management:</strong> Redux, MobX, Context API, Redux-Saga, Redux-thunk</li>
+          <li><strong>API Integration:</strong> REST APIs, GraphQL, Firebase, React-query, RTK-Query</li>
+          <li><strong>Testing:</strong> Jest, React Testing Library, Enzyme</li>
+          <li><strong>CI/CD:</strong> Jenkins, GitLab CI/CD</li>
+          <li><strong>Version Control:</strong> Git, GitLab, Bitbucket, GitHub</li>
+          <li><strong>Project Management Tools:</strong> Jira, Confluence</li>
+          <li><strong>UI Libraries:</strong> Material-UI (MUI), Styled-Components</li>
         </ul>
+      </div>
+
+      <!-- Soft Skills Section -->
+      <div id="soft-skills" class="hidden">
+        <h2 class="section-title">Soft Skills</h2>
+        <ul>
+          <li><strong>Leadership & Team Management:</strong> Proven ability to lead and mentor development teams, fostering an environment of growth, collaboration, and innovation. Skilled in aligning individual and team goals with organizational objectives.</li>
+          <li><strong>Cross-Departmental Collaboration:</strong> Experienced in working closely with product managers, designers, and back-end teams to ensure cohesive project delivery and alignment with overall business goals.</li>
+          <li><strong>Project Management & Organization:</strong> Adept at managing project timelines, coordinating team efforts, and ensuring projects are delivered on time with high quality.</li>
+          <li><strong>Communication & Stakeholder Management:</strong> Excellent verbal and written communication skills, ensuring clear and effective communication with team members, stakeholders, and executives.</li>
+          <li><strong>Problem-Solving & Decision-Making:</strong> Strong problem-solving abilities, able to analyze complex issues, make informed decisions, and implement effective solutions while keeping the team motivated and focused.</li>
+          <li><strong>Adaptability & Resilience:</strong> Comfortable leading teams in fast-paced, dynamic environments, adapting quickly to changing requirements while maintaining team productivity.</li>
+          <li><strong>Conflict Resolution:</strong> Adept at mediating team conflicts and resolving challenges to maintain a cohesive and productive team environment.</li>
+        </ul>
+      </div>
+
+      <!-- Education Section -->
+      <div id="education" class="hidden">
+        <h2 class="section-title">Education</h2>
+        <p><strong>B.Sc. in Computer Science</strong><br>
+        <strong>University of Mansoura, Egypt</strong><br>
+        <strong>2015 - 2019</strong></p>
       </div>
 
       <!-- Projects Section -->
       <div id="projects" class="hidden">
-        <h2 class="section-title">Mission 3: My Projects</h2>
-        <ul>
-          <li>
-            <a
-              href="https://www.riyadbank.com/en/personal/digital-banking/mobile-app"
-              target="_blank"
-              ><strong>Riyad Bank App</strong></a
-            >: Led the development of a secure, customer-centric mobile banking
-            solution.
-          </li>
-          <li>
-            <a href="#" target="_blank"><strong>HealthOne NOVA</strong></a
-            >: Developed a cloud healthcare solution for the Belgium government,
-            facilitating better patient care.
-          </li>
-          <li>
-            <a href="#" target="_blank"><strong>TAMM Portal</strong></a
-            >: Created a cloud-based HR portal for the UAE, streamlining job
-            applications and tracking.
-          </li>
-          <li>
-            <a href="https://expandcart.com/" target="_blank"
-              ><strong>ExpandCart E-Commerce Template</strong></a
-            >: Built a customizable e-commerce platform for quick deployment and
-            secure payments.
-          </li>
-          <li>
-            <a href="#" target="_blank"><strong>Smart Lab</strong></a
-            >: Managed a smart solution for automating lab attendance and device
-            control.
-          </li>
-          <li>
-            <a href="#" target="_blank"><strong>Noonmar App</strong></a
-            >: Developed an e-commerce app for Noonmar, integrating
-            authentication, cart management, and payment.
-          </li>
-          <li>
-            <a href="#" target="_blank"><strong>Baby Care App</strong></a
-            >: Created a babysitting app with chat, booking, and payment
-            features.
-          </li>
-          <li>
-            <a href="#" target="_blank"><strong>Auction App</strong></a
-            >: Designed a real-time auction platform for vehicle sales.
-          </li>
-          <li>
-            <a href="#" target="_blank"
-              ><strong>Nile School Parent App</strong></a
-            >: Built an app for student attendance tracking and parental
-            notifications.
-          </li>
-        </ul>
+        <h2 class="section-title">Projects</h2>
+        
+        <div class="project-item">
+          <span class="project-title"><strong> Digital Banking App</strong></span>
+          <p>Played a key role in transforming the <strong>Confidential Digital Banking App</strong> into an intuitive and high-performing platform, applying front-end development expertise to ensure a seamless and secure user experience while driving project success.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://apps.apple.com/eg/app/riyad-bank-app/id6451439906" target="_blank" class="project-title"><strong>Riyad Bank App</strong></a>
+          <p>Integral in shaping the app into a user-friendly and efficient tool for customers, leveraging expertise in front-end development to drive project success.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://healthone.be/healthonenova/" target="_blank" class="project-title"><strong>HealthOne NOVA</strong></a>
+          <p>Developed a healthcare cloud web app for the Belgium government, featuring user authentication, consultation, medication tracking, vaccination, messaging, and payment processing.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://www.tamm.abudhabi/wb/hra/apply-for-job-vacancy/login" target="_blank" class="project-title"><strong>TAMM Portal (Human Resources Authority)</strong></a>
+          <p>Developed a human resources module cloud web app for the UAE, including user authentication, job applications, and application status tracking.</p>
+        </div>
+        
+        <div class="project-item">
+          <span class="project-title"><strong>E-commerce Store Template</strong></span>
+          <p>Developed an e-commerce template for ExpandCart, with features like user authentication, social logins, cart management, and WebView payment, enabling unique store setups.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://play.google.com/store/apps/details?id=com.tsoft.noonmar&pcampaignid=web_share" target="_blank" class="project-title"><strong>Noonmar App</strong></a>
+          <p>Developed an eCommerce app for noonmar.com, featuring user authentication, social logins, cart operations, and WebView payment.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://play.google.com/store/apps/details?id=com.evisionmaintenanceapp&pcampaignid=web_share" target="_blank" class="project-title"><strong>Maintenance App</strong></a>
+          <p>Developed a maintenance app for the E-vision cleaning system, streamlining repair tracking and request management.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://drive.google.com/file/d/1rT8cC6RkCrLXAmOYPqLr3iFtr9cc5I31/view" target="_blank" class="project-title"><strong>Auction App</strong></a>
+          <p>Developed an online auction app for selling cars with real-time bidding features.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" class="project-title"><strong>Nile School Parent App</strong></a>
+          <p>Developed an app for tracking student attendance and sending notifications.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" class="project-title"><strong>Baby Care App</strong></a>
+          <p>Developed an app for managing babysitting services, including chat, booking, and payments.</p>
+        </div>
+        
+        <div class="project-item">
+          <a href="https://github.com/saadelsabahy/smartLab" target="_blank" class="project-title"><strong>Smart Lab</strong></a>
+          <p>Developed an app to control lab devices and manage attendance, improving management efficiency and data synchronization.</p>
+        </div>
       </div>
 
-      <!-- Soft Skills & Competencies Section -->
-      <div id="soft-skills" class="hidden">
-        <h2 class="section-title">Mission 4: Soft Skills & Competencies</h2>
+      <!-- Languages Section -->
+      <div id="languages" class="hidden">
+        <h2 class="section-title">Languages</h2>
         <ul>
-          <li>
-            <strong>Leadership:</strong> Building and mentoring high-performance
-            development teams that deliver high-quality projects on time.
-          </li>
-          <li>
-            <strong>Collaboration:</strong> Working cross-functionally with
-            product, design, and backend teams to create cohesive user
-            experiences.
-          </li>
-          <li>
-            <strong>Project Management:</strong> Skilled in managing timelines
-            and aligning team efforts to deliver exceptional software.
-          </li>
-          <li>
-            <strong>Communication:</strong> Strong interpersonal and
-            communication skills for engaging with stakeholders and team
-            members.
-          </li>
-          <li>
-            <strong>Problem-Solving:</strong> Analytical thinking for
-            identifying and resolving complex technical issues.
-          </li>
-          <li>
-            <strong>Adaptability:</strong> Thrives in dynamic, fast-paced
-            environments, responding quickly to changing requirements.
-          </li>
-        </ul>
-      </div>
-
-      <!-- Companies Section -->
-      <div id="companies" class="hidden">
-        <h2 class="section-title">Mission 5: My Companies</h2>
-        <ul>
-          <li>
-            <strong>Frontend Team Lead - Riyad Bank:</strong> Riyadh, KSA (Sep
-            2023 - Present)
-          </li>
-          <li>
-            <strong>Senior Frontend Developer - Cegedim:</strong> Cairo, Egypt
-            (May 2022 - Sep 2023)
-          </li>
-          <li>
-            <strong>Software Engineer (Part-time) - Musala Soft:</strong> Sofia,
-            Bulgaria (Dec 2021 - Sep 2022)
-          </li>
-          <li>
-            <strong>React Native Developer - ExpandCart:</strong> Cairo, Egypt
-            (Dec 2021 - Sept 2022)
-          </li>
-          <li>
-            <strong>React Native Developer - Evision:</strong> Cairo, Egypt (Feb
-            2020 - Dec 2020)
-          </li>
-          <li>
-            <strong>React Native Developer - X_Cortex:</strong> Gharbia, Egypt
-            (Sep 2019 - Feb 2020)
-          </li>
+          <li><strong>Arabic:</strong> Fluent (Reading, Writing, Speaking)</li>
+          <li><strong>English:</strong> Very Good (Reading, Writing, Speaking)</li>
         </ul>
       </div>
     </div>
 
     <script>
-      // Function to toggle sections, closing and opening on click
+      // Function to toggle sections with smooth transitions
       function toggleSection(id, button) {
         const section = document.getElementById(id);
         const isHidden = section.classList.contains('hidden');
 
         // Hide all sections and deselect buttons
-        const sections = document.querySelectorAll('.container > div');
-        sections.forEach((section) => section.classList.add('hidden'));
+        const sections = document.querySelectorAll('.container > div[id]');
+        sections.forEach((section) => {
+          if (!section.classList.contains('hidden')) {
+            section.classList.remove('visible');
+            section.classList.add('hidden');
+          }
+        });
+        
         const buttons = document.querySelectorAll('.button');
         buttons.forEach((btn) => btn.classList.remove('selected'));
 
         // If the section was hidden, show it and mark the button as selected
         if (isHidden) {
           section.classList.remove('hidden');
+          // Trigger reflow to enable transition
+          void section.offsetWidth;
+          section.classList.add('visible');
           button.classList.add('selected');
         }
       }
@@ -415,6 +542,7 @@
       // Set the first mission as opened by default
       document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('mission1').classList.add('selected');
+        document.getElementById('about').classList.add('visible');
       });
     </script>
   </body>
