@@ -1,0 +1,81 @@
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env*.local
+
+# Build directories
+dist/
+build/
+out/
+.next/
+.vite/
+.svelte-kit/
+
+# Cache directories
+.cache/
+.temp/
+
+# Logs
+*.log
+logs/
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Source map files
+*.map
+*.css.map
+*.js.map
+*.sass.map
+*.scss.map
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Package files
+*.tgz
+
+# ESLint cache
+.eslintcache
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Parcel cache
+.parcel-cache
+
+# Next.js
+.next/
+
+# Vite cache
+.cache/
+
+# Webpack cache
+.webpack/
+
+# Babel cache
+babel.config.js
