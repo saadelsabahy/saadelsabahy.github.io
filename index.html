@@ -1,566 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Saad Elsabahy - Frontend Team Lead</title>
-    <!-- Link to Google Fonts for 'Orbitron' -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description"
+    content="Saad Elsabahy - Frontend Team Lead with expertise in React and React Native. Professional portfolio showcasing work experience, technical skills, and projects.">
+  <meta name="keywords"
+    content="Frontend Developer, React, React Native, JavaScript, TypeScript, Team Lead, Web Development, Mobile Development">
+  <meta name="author" content="Saad Elsabahy">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Saad Elsabahy - Frontend Team Lead">
+  <meta property="og:description"
+    content="Professional portfolio of Saad Elsabahy, Frontend Team Lead with expertise in React and React Native.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saadelsabahy.com">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons//favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <title>Saad Elsabahy - Frontend Team Lead | React & React Native Expert</title>
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Link to Google Fonts for 'Orbitron' -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :focus-visible {
+      outline: 3px solid #00ff00;
+      outline-offset: 2px;
+    }
+
+    body {
+      background-color: #1b1b1b;
+      color: #00ff00;
+      font-family: 'Orbitron', sans-serif;
+      padding: 15px;
+      text-align: center;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: clamp(24px, 6vw, 32px);
+      margin-bottom: 15px;
+      word-break: break-word;
+    }
+
+    .container {
+      border: 3px solid #00ff00;
+      padding: 15px;
+      max-width: min(800px, 100%);
+      margin: 0 auto;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .button {
+      background-color: #00ff00;
+      color: black;
+      border: none;
+      padding: 10px 12px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: clamp(12px, 3vw, 14px);
+      transition: all 0.3s ease;
+      font-family: 'Orbitron', sans-serif;
+      white-space: nowrap;
+      transform: translateZ(0);
+      will-change: transform;
+      flex: 1 0 auto;
+      min-width: 120px;
+      border: 3px solid transparent;
+      border-radius: 4px;
+    }
+
+    .button:hover,
+    .button.selected {
+      background-color: black;
+      color: #00ff00;
+      border: 3px solid #00ff00;
+      transform: scale(1.05) translateZ(0);
+    }
+
+    .hidden {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .visible {
+      display: block;
+      opacity: 1;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 15px 0;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      text-align: left;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    p {
+      margin-bottom: 15px;
+      text-align: left;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    @keyframes glitch {
+      0% {
+        text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00;
       }
 
-      body {
-        background-color: #1b1b1b;
-        color: #00ff00;
-        font-family: 'Orbitron', sans-serif;
-        padding: 15px;
-        text-align: center;
-        -webkit-text-size-adjust: 100%;
-        -webkit-tap-highlight-color: transparent;
+      50% {
+        text-shadow: -2px -2px 0 #ff00ff, 2px 2px 0 #ff00ff;
+      }
+
+      100% {
+        text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00;
+      }
+    }
+
+    h1 {
+      animation: glitch 1s infinite;
+    }
+
+    /* Marquee Title */
+    marquee {
+      font-size: clamp(16px, 5vw, 24px);
+      margin-bottom: 15px;
+      color: #00ff00;
+      overflow: hidden;
+    }
+
+    a {
+      color: #00ff00;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      word-break: break-all;
+    }
+
+    a:hover {
+      color: #00ff00;
+      text-decoration: underline;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #00ff00;
+      color: black;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Professional, gaming-inspired styling */
+    .section-title {
+      font-size: clamp(20px, 6vw, 28px);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      color: #00ff00;
+    }
+
+    p,
+    ul li {
+      font-size: clamp(14px, 4vw, 16px);
+      color: #cccccc;
+    }
+
+    ul li strong,
+    .company-name {
+      color: #00ff00;
+    }
+
+    .job-title {
+      margin-bottom: 5px;
+    }
+
+    .job-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 5px;
+      margin-bottom: 5px;
+    }
+
+    .job-period {
+      color: #cccccc;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    .project-item {
+      margin-bottom: 15px;
+    }
+
+    .project-title {
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+
+    .buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 15px;
+    }
+
+    .company-link {
+      color: #00ff00;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      word-break: break-all;
+    }
+
+    .company-link:hover {
+      transform: scale(1.02);
+      text-decoration: underline;
+    }
+
+    /* Improved touch targets */
+    @media (pointer: coarse) {
+      .button {
+        padding: 12px 15px;
+        min-width: 140px;
+      }
+
+      a,
+      .company-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
       }
 
       h1 {
-        font-size: clamp(24px, 6vw, 32px);
-        margin-bottom: 15px;
-        word-break: break-word;
+        animation: none;
+      }
+    }
+
+    /* High contrast mode */
+    @media (prefers-contrast: more) {
+      body {
+        background-color: black;
       }
 
       .container {
-        border: 3px solid #00ff00;
-        padding: 15px;
-        max-width: min(800px, 100%);
-        margin: 0 auto;
-        background-color: black;
-        overflow: hidden;
+        border-width: 4px;
       }
 
       .button {
-        background-color: #00ff00;
-        color: black;
-        border: none;
-        padding: 10px 12px;
-        margin: 5px;
-        cursor: pointer;
-        font-size: clamp(12px, 3vw, 14px);
-        transition: all 0.3s ease;
-        font-family: 'Orbitron', sans-serif;
-        white-space: nowrap;
-        transform: translateZ(0);
-        will-change: transform;
-        flex: 1 0 auto;
-        min-width: 120px;
+        border-width: 3px;
+      }
+    }
+
+    /* Very small devices */
+    @media (max-width: 360px) {
+      body {
+        padding: 10px;
       }
 
-      .button:hover,
-      .button.selected {
-        background-color: black;
-        color: #00ff00;
-        border: 3px solid #00ff00;
-        transform: scale(1.05) translateZ(0);
+      .container {
+        padding: 10px;
       }
 
-      .hidden {
-        display: none;
-        opacity: 0;
-        transition: opacity 0.3s ease;
+      .button {
+        min-width: 100px;
+        padding: 8px 10px;
+        margin: 3px;
+      }
+    }
+
+    /* Center Contact & Summary on mobile */
+    @media (max-width: 600px) {
+      #about {
+        text-align: center;
       }
 
-      .visible {
-        display: block;
-        opacity: 1;
+      #about p {
+        text-align: center;
       }
 
-      ul {
-        list-style-type: none;
+      #about ul {
+        text-align: center;
         padding-left: 0;
-        margin: 15px 0;
       }
 
-      ul li {
-        margin-bottom: 10px;
-        text-align: left;
-        line-height: 1.5;
-        word-break: break-word;
-      }
-
-      p {
-        margin-bottom: 15px;
-        text-align: left;
-        line-height: 1.5;
-        word-break: break-word;
-      }
-
-      @keyframes glitch {
-        0% {
-          text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00;
-        }
-        50% {
-          text-shadow: -2px -2px 0 #ff00ff, 2px 2px 0 #ff00ff;
-        }
-        100% {
-          text-shadow: 2px 2px 0 #00ff00, -2px -2px 0 #00ff00;
-        }
-      }
-
-      h1 {
-        animation: glitch 1s infinite;
-      }
-
-      /* Marquee Title */
-      marquee {
-        font-size: clamp(16px, 5vw, 24px);
-        margin-bottom: 15px;
-        color: #00ff00;
-        overflow: hidden;
-      }
-
-      a {
-        color: #00ff00;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        word-break: break-all;
-      }
-
-      a:hover {
-        color: #00ff00;
-        text-decoration: underline;
-      }
-
-      /* Professional, gaming-inspired styling */
-      .section-title {
-        font-size: clamp(20px, 6vw, 28px);
-        text-transform: uppercase;
-        margin-bottom: 15px;
-        color: #00ff00;
-      }
-
-      p,
-      ul li {
-        font-size: clamp(14px, 4vw, 16px);
-        color: #cccccc;
-      }
-
-      ul li strong,
-      .company-name {
-        color: #00ff00;
-      }
-
-      .job-title {
-        margin-bottom: 5px;
-      }
-
-      .job-header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: 5px;
-        margin-bottom: 5px;
-      }
-
-      .job-period {
-        color: #cccccc;
-        font-size: clamp(12px, 3vw, 14px);
-      }
-
-      .project-item {
-        margin-bottom: 15px;
-      }
-
-      .project-title {
+      #about ul li {
+        text-align: center;
         display: inline-block;
-        margin-bottom: 5px;
+        width: 100%;
       }
 
-      .buttons-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
-        margin-bottom: 15px;
-      }
-
-      .company-link {
-        color: #00ff00;
-        text-decoration: none;
-        transition: all 0.3s ease;
+      #about a {
         display: inline-block;
-        word-break: break-all;
+        margin: 5px 0;
       }
+    }
+  </style>
+</head>
 
-      .company-link:hover {
-        transform: scale(1.02);
-        text-decoration: underline;
-      }
+<body>
+  <!-- Skip link for keyboard users -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-      /* Improved touch targets */
-      @media (pointer: coarse) {
-        .button {
-          padding: 12px 15px;
-          min-width: 140px;
-        }
-        
-        a, .company-link {
-          min-height: 44px;
-          display: inline-flex;
-          align-items: center;
-        }
-      }
+  <!-- Marquee Title -->
+  <marquee behavior="scroll" direction="left" aria-label="Welcome message">Welcome to Saad Elsabahy's Professional
+    Portfolio</marquee>
 
-      /* Very small devices */
-      @media (max-width: 360px) {
-        body {
-          padding: 10px;
-        }
-        
-        .container {
-          padding: 10px;
-        }
-        
-        .button {
-          min-width: 100px;
-          padding: 8px 10px;
-          margin: 3px;
-        }
-      }
+  <h1>Saad Elsabahy</h1>
 
-      /* Center Contact & Summary on mobile */
-      @media (max-width: 600px) {
-        #about {
-          text-align: center;
-        }
-        
-        #about p {
-          text-align: center;
-        }
-        
-        #about ul {
-          text-align: center;
-          padding-left: 0;
-        }
-        
-        #about ul li {
-          text-align: center;
-          display: inline-block;
-          width: 100%;
-        }
-        
-        #about a {
-          display: inline-block;
-          margin: 5px 0;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Marquee Title -->
-    <marquee behavior="scroll" direction="left">Welcome to Saad Elsabahy's Professional Portfolio</marquee>
+  <div class="container" id="main-content" tabindex="-1">
+    <p>Frontend Team Lead with robust technical background in React | React Native and leadership experience</p>
 
-    <h1>Saad Elsabahy</h1>
-
-    <div class="container">
-      <p>Frontend Team Lead with robust technical background in React | React Native and leadership experience</p>
-
-      <div class="buttons-container">
-        <button class="button selected" id="mission1" onclick="toggleSection('about', this)">
-          Contact
-        </button>
-        <button class="button" id="mission2" onclick="toggleSection('experience', this)">
-          Work Experience
-        </button>
-        <button class="button" id="mission3" onclick="toggleSection('skills', this)">
-          Technical Skills
-        </button>
-        <button class="button" id="mission4" onclick="toggleSection('soft-skills', this)">
-          Soft Skills
-        </button>
-        <button class="button" id="mission5" onclick="toggleSection('education', this)">
-          Education
-        </button>
-        <button class="button" id="mission6" onclick="toggleSection('projects', this)">
-          Projects
-        </button>
-        <button class="button" id="mission7" onclick="toggleSection('languages', this)">
-          Languages
-        </button>
-      </div>
-
-      <!-- About Section (Opened by Default) -->
-      <div id="about" class="visible">
-        <h2 class="section-title">Contact</h2>
-        <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
-        <p>
-          <strong>Contact:</strong>
-          <a href="tel:+966554274124">(+966) 55 427 4124</a> |
-          <a href="mailto:saadelsabahy11@gmail.com">saadelsabahy11@gmail.com</a>
-        </p>
-        <p>
-          <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a> | 
-          <a href="https://github.com/saadelsabahy" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-        </p>
-        
-        <!-- <h3>Summary</h3>
-        <p>Frontend React/React Native Team Lead with a robust technical background and a proven track record in leadership. I possess extensive experience in managing development teams, spearheading innovative projects, and delivering high-quality web and mobile applications. Highly skilled in mentoring developers and fostering collaboration across departments, I ensure timely project delivery while maintaining software excellence. Recognized for my expertise in JavaScript, React, and modern development methodologies, I am eager to lead teams and contribute to transformative projects that require both technical acumen and effective leadership.</p> -->
-      </div>
-
-      <!-- Experience Section -->
-      <div id="experience" class="hidden">
-        <h2 class="section-title">Work Experience</h2>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>Frontend Team Lead</strong> |
-            <a href="https://www.alrajhibank.com.sa/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Alrajhi Bank</a>
-            <span class="job-period">| Riyadh, KSA | Jan 2024 - Present</span>
-          </div>
-          <ul>
-            <li>Guide and support the front-end team, helping them improve skills and work efficiency.</li>
-            <li>Work closely with project managers to match development work with project plans and goals.</li>
-            <li>Review code to keep it clean, reliable, and in line with best practices.</li>
-            <li>Encourage teamwork and good communication between different departments.</li>
-            <li>Plan and set up the front-end structure and tools to meet business needs.</li>
-            <li>Help shape the bank's tech direction by creating a common starter template for all apps and reusing code through shared libraries.</li>
-          </ul>
-        </div>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>Frontend Team Lead</strong> |
-            <a href="https://www.riyadbank.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Riyad Bank</a>
-            <span class="job-period">| Riyadh, KSA | Sep 2023 - Jan 2024</span>
-          </div>
-          <ul>
-            <li>Lead and mentor a front-end development team, enhancing skills and performance through training and guidance.</li>
-            <li>Coordinate with project managers to align development goals with project timelines and objectives.</li>
-            <li>Conduct code reviews to ensure high standards of code quality and adherence to best practices.</li>
-            <li>Foster a collaborative team environment, facilitating effective cross-departmental communication.</li>
-            <li>Develop and implement front-end architecture and technology strategies in line with business goals.</li>
-            <li>Contributed to long-term technology roadmaps, aligning frontend development strategies with organizational objectives to ensure sustainable growth by building boilerplate for all apps in Riyadbank and utilizing all possible reusable code in libraries.</li>
-          </ul>
-        </div>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>Senior Frontend Developer</strong> |
-            <a href="https://www.cegedim.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Cegedim</a>
-            <span class="job-period">| Cairo, EG | May 2022 - Sep 2023</span>
-          </div>
-          <ul>
-            <li>Spearheaded front-end development initiatives using TypeScript, React, Redux, Saga, and REST APIs, while working closely with product teams to develop innovative user experiences.</li>
-            <li>Successfully delivered high-quality, testable React components using Jest and React Testing Library, ensuring the robustness of web applications.</li>
-            <li>Actively participated in sprint planning, task prioritization, and project tracking using Jira and Confluence in an agile environment.</li>
-            <li>Fostered strong collaboration across the backend and design teams to ensure feature completeness and technical feasibility.</li>
-          </ul>
-        </div>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>Software Engineer (Part-time)</strong> |
-            <a href="https://www.musala.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Musala Soft</a>
-            <span class="job-period">| Sofia, BG | Dec 2021 - Sep 2022</span>
-          </div>
-          <ul>
-            <li>Developed mobile applications and websites using React and React Native.</li>
-            <li>Implemented reusable UI components, improving development efficiency and code quality.</li>
-            <li>Assisted team members in enhancing their coding practices and development skills.</li>
-          </ul>
-        </div>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>React Native Developer</strong> |
-            <a href="https://expandcart.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">ExpandCart</a>
-            <span class="job-period">| Cairo, EG | Dec 2021-Sept 2022 (Part-time)</span>
-            <span class="job-period">Dec 2020 - Dec 2021 (full-time)</span>
-          </div>
-          <ul>
-            <li>Delivered and deployed high-performance mobile applications, contributing to the overall user experience and interface.</li>
-            <li>Implemented reusable UI components and optimized mobile applications for performance and scalability.</li>
-            <li>Collaborated with stakeholders to address project requirements and ensure the timely delivery of mobile app solutions.</li>
-          </ul>
-        </div>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>React Native Developer</strong> |
-            <a href="https://www.evision-eg.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Evision</a>
-            <span class="job-period">| Cairo, EG | Feb 2020 - Dec 2020</span>
-          </div>
-          <ul>
-            <li>Worked on mobile app development using React Native, contributing to building intuitive, high-performance applications.</li>
-            <li>Collaborated with team members to ensure smooth integration of app features and shared knowledge of best practices.</li>
-          </ul>
-        </div>
-        
-        <div class="job-title">
-          <div class="job-header">
-            <strong>React Native Developer</strong> |
-            <span class="company-name">X_Cortex</span>
-            <span class="job-period">| Gharbia, EG | Sep 2019 - Feb 2020</span>
-          </div>
-          <ul>
-            <li>Developed mobile applications, focusing on reusable components and creating user-friendly experiences for end-users.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Skills Section -->
-      <div id="skills" class="hidden">
-        <h2 class="section-title">Technical Skills</h2>
-        <ul>
-          <li><strong>Languages:</strong> JavaScript, TypeScript</li>
-          <li><strong>Mobile Development:</strong> React Native, Native Modules</li>
-          <li><strong>Markup & Styling:</strong> HTML, CSS, SASS</li>
-          <li><strong>Frontend Frameworks:</strong> React</li>
-          <li><strong>State Management:</strong> Redux, MobX, Context API, Redux-Saga, Redux-thunk</li>
-          <li><strong>API Integration:</strong> REST APIs, GraphQL, Firebase, React-query, RTK-Query</li>
-          <li><strong>Testing:</strong> Jest, React Testing Library, Enzyme</li>
-          <li><strong>CI/CD:</strong> Jenkins, GitLab CI/CD</li>
-          <li><strong>Version Control:</strong> Git, GitLab, Bitbucket, GitHub</li>
-          <li><strong>Project Management Tools:</strong> Jira, Confluence</li>
-          <li><strong>UI Libraries:</strong> Material-UI (MUI), Styled-Components</li>
-        </ul>
-      </div>
-
-      <!-- Soft Skills Section -->
-      <div id="soft-skills" class="hidden">
-        <h2 class="section-title">Soft Skills</h2>
-        <ul>
-          <li><strong>Leadership & Team Management:</strong> Proven ability to lead and mentor development teams, fostering an environment of growth, collaboration, and innovation. Skilled in aligning individual and team goals with organizational objectives.</li>
-          <li><strong>Cross-Departmental Collaboration:</strong> Experienced in working closely with product managers, designers, and back-end teams to ensure cohesive project delivery and alignment with overall business goals.</li>
-          <li><strong>Project Management & Organization:</strong> Adept at managing project timelines, coordinating team efforts, and ensuring projects are delivered on time with high quality.</li>
-          <li><strong>Communication & Stakeholder Management:</strong> Excellent verbal and written communication skills, ensuring clear and effective communication with team members, stakeholders, and executives.</li>
-          <li><strong>Problem-Solving & Decision-Making:</strong> Strong problem-solving abilities, able to analyze complex issues, make informed decisions, and implement effective solutions while keeping the team motivated and focused.</li>
-          <li><strong>Adaptability & Resilience:</strong> Comfortable leading teams in fast-paced, dynamic environments, adapting quickly to changing requirements while maintaining team productivity.</li>
-          <li><strong>Conflict Resolution:</strong> Adept at mediating team conflicts and resolving challenges to maintain a cohesive and productive team environment.</li>
-        </ul>
-      </div>
-
-      <!-- Education Section -->
-      <div id="education" class="hidden">
-        <h2 class="section-title">Education</h2>
-        <p><strong>B.Sc. in Computer Science</strong><br>
-        <strong>University of Mansoura, Egypt</strong><br>
-        <strong>2015 - 2019</strong></p>
-      </div>
-
-      <!-- Projects Section -->
-      <div id="projects" class="hidden">
-        <h2 class="section-title">Projects</h2>
-        
-        <div class="project-item">
-          <span class="project-title"><strong> Digital Banking App</strong></span>
-          <p>Played a key role in transforming the <strong>Confidential Digital Banking App</strong> into an intuitive and high-performing platform, applying front-end development expertise to ensure a seamless and secure user experience while driving project success.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://apps.apple.com/eg/app/riyad-bank-app/id6451439906" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Riyad Bank App</strong></a>
-          <p>Integral in shaping the app into a user-friendly and efficient tool for customers, leveraging expertise in front-end development to drive project success.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://healthone.be/healthonenova/" target="_blank" rel="noopener noreferrer" class="project-title"><strong>HealthOne NOVA</strong></a>
-          <p>Developed a healthcare cloud web app for the Belgium government, featuring user authentication, consultation, medication tracking, vaccination, messaging, and payment processing.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://www.tamm.abudhabi/wb/hra/apply-for-job-vacancy/login" target="_blank" rel="noopener noreferrer" class="project-title"><strong>TAMM Portal (Human Resources Authority)</strong></a>
-          <p>Developed a human resources module cloud web app for the UAE, including user authentication, job applications, and application status tracking.</p>
-        </div>
-        
-        <div class="project-item">
-          <span class="project-title"><strong>E-commerce Store Template</strong></span>
-          <p>Developed an e-commerce template for ExpandCart, with features like user authentication, social logins, cart management, and WebView payment, enabling unique store setups.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://play.google.com/store/apps/details?id=com.tsoft.noonmar&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Noonmar App</strong></a>
-          <p>Developed an eCommerce app for noonmar.com, featuring user authentication, social logins, cart operations, and WebView payment.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://play.google.com/store/apps/details?id=com.evisionmaintenanceapp&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Maintenance App</strong></a>
-          <p>Developed a maintenance app for the E-vision cleaning system, streamlining repair tracking and request management.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://drive.google.com/file/d/1rT8cC6RkCrLXAmOYPqLr3iFtr9cc5I31/view" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Auction App</strong></a>
-          <p>Developed an online auction app for selling cars with real-time bidding features.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Nile School Parent App</strong></a>
-          <p>Developed an app for tracking student attendance and sending notifications.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Baby Care App</strong></a>
-          <p>Developed an app for managing babysitting services, including chat, booking, and payments.</p>
-        </div>
-        
-        <div class="project-item">
-          <a href="https://github.com/saadelsabahy/smartLab" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Smart Lab</strong></a>
-          <p>Developed an app to control lab devices and manage attendance, improving management efficiency and data synchronization.</p>
-        </div>
-      </div>
-
-      <!-- Languages Section -->
-      <div id="languages" class="hidden">
-        <h2 class="section-title">Languages</h2>
-        <ul>
-          <li><strong>Arabic:</strong> Fluent (Reading, Writing, Speaking)</li>
-          <li><strong>English:</strong> Very Good (Reading, Writing, Speaking)</li>
-        </ul>
-      </div>
+    <div class="buttons-container" role="tablist" aria-label="Portfolio sections">
+      <button class="button selected" id="mission1" onclick="showSection('about', this)" role="tab" aria-selected="true"
+        aria-controls="about">
+        Contact
+      </button>
+      <button class="button" id="mission2" onclick="showSection('experience', this)" role="tab" aria-selected="false"
+        aria-controls="experience">
+        Work Experience
+      </button>
+      <button class="button" id="mission3" onclick="showSection('skills', this)" role="tab" aria-selected="false"
+        aria-controls="skills">
+        Technical Skills
+      </button>
+      <button class="button" id="mission4" onclick="showSection('soft-skills', this)" role="tab" aria-selected="false"
+        aria-controls="soft-skills">
+        Soft Skills
+      </button>
+      <button class="button" id="mission5" onclick="showSection('education', this)" role="tab" aria-selected="false"
+        aria-controls="education">
+        Education
+      </button>
+      <button class="button" id="mission6" onclick="showSection('projects', this)" role="tab" aria-selected="false"
+        aria-controls="projects">
+        Projects
+      </button>
+      <button class="button" id="mission7" onclick="showSection('languages', this)" role="tab" aria-selected="false"
+        aria-controls="languages">
+        Languages
+      </button>
     </div>
 
-    <script>
-      // Function to toggle sections with smooth transitions
-      function toggleSection(id, button) {
-        const section = document.getElementById(id);
-        const isHidden = section.classList.contains('hidden');
+    <!-- About Section (Opened by Default) -->
+    <section id="about" class="visible" role="tabpanel" aria-labelledby="mission1" tabindex="0">
+      <h2 class="section-title">Contact</h2>
+      <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
+      <p>
+        <strong>Contact:</strong>
+        <a href="tel:+966554274124" aria-label="Phone number">(+966) 55 427 4124</a> |
+        <a href="mailto:saadelsabahy11@gmail.com" aria-label="Email address">saadelsabahy11@gmail.com</a>
+      </p>
+      <p>
+        <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn profile">LinkedIn Profile</a> |
+        <a href="https://github.com/saadelsabahy" target="_blank" rel="noopener noreferrer"
+          aria-label="GitHub profile">GitHub Profile</a>
+      </p>
+    </section>
 
-        // Hide all sections and deselect buttons
-        const sections = document.querySelectorAll('.container > div[id]');
-        sections.forEach((section) => {
-          if (!section.classList.contains('hidden')) {
-            section.classList.remove('visible');
-            section.classList.add('hidden');
-          }
-        });
-        
-        const buttons = document.querySelectorAll('.button');
-        buttons.forEach((btn) => btn.classList.remove('selected'));
+    <!-- Experience Section -->
+    <section id="experience" class="hidden" role="tabpanel" aria-labelledby="mission2" hidden>
+      <h2 class="section-title">Work Experience</h2>
 
-        // If the section was hidden, show it and mark the button as selected
-        if (isHidden) {
-          section.classList.remove('hidden');
-          // Trigger reflow to enable transition
-          void section.offsetWidth;
-          section.classList.add('visible');
-          button.classList.add('selected');
-          
-          // Smooth scroll to section
-          section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      <article class="job-title">
+        <div class="job-header">
+          <strong>Frontend Team Lead</strong> |
+          <a href="https://www.alrajhibank.com.sa/" target="_blank" rel="noopener noreferrer"
+            class="company-link company-name">Alrajhi Bank</a>
+          <span class="job-period">| Riyadh, KSA | Jan 2024 - Present</span>
+        </div>
+        <ul>
+          <li>Guide and support the front-end team, helping them improve skills and work efficiency.</li>
+          <li>Work closely with project managers to match development work with project plans and goals.</li>
+          <li>Review code to keep it clean, reliable, and in line with best practices.</li>
+          <li>Encourage teamwork and good communication between different departments.</li>
+          <li>Plan and set up the front-end structure and tools to meet business needs.</li>
+          <li>Help shape the bank's tech direction by creating a common starter template for all apps and reusing code
+            through shared libraries.</li>
+        </ul>
+      </article>
+
+      <article class="job-title">
+        <div class="job-header">
+          <strong>Frontend Team Lead</strong> |
+          <a href="https://www.riyadbank.com/" target="_blank" rel="noopener noreferrer"
+            class="company-link company-name">Riyad Bank</a>
+          <span class="job-period">| Riyadh, KSA | Sep 2023 - Jan 2024</span>
+        </div>
+        <ul>
+          <li>Lead and mentor a front-end development team, enhancing skills and performance through training and
+            guidance.</li>
+          <li>Coordinate with project managers to align development goals with project timelines and objectives.</li>
+          <li>Conduct code reviews to ensure high standards of code quality and adherence to best practices.</li>
+          <li>Foster a collaborative team environment, facilitating effective cross-departmental communication.</li>
+          <li>Develop and implement front-end architecture and technology strategies in line with business goals.</li>
+          <li>Contributed to long-term technology roadmaps, aligning frontend development strategies with organizational
+            objectives to ensure sustainable growth by building boilerplate for all apps in Riyadbank and utilizing all
+            possible reusable code in libraries.</li>
+        </ul>
+      </article>
+
+      <article class="job-title">
+        <div class="job-header">
+          <strong>Senior Frontend Developer</strong> |
+          <a href="https://www.cegedim.com/" target="_blank" rel="noopener noreferrer"
+            class="company-link company-name">Cegedim</a>
+          <span class="job-period">| Cairo, EG | May 2022 - Sep 2023</span>
+        </div>
+        <ul>
+          <li>Spearheaded front-end development initiatives using TypeScript, React, Redux, Saga, and REST APIs, while
+            working closely with product teams to develop innovative user experiences.</li>
+          <li>Successfully delivered high-quality, testable React components using Jest and React Testing Library,
+            ensuring the robustness of web applications.</li>
+          <li>Actively participated in sprint planning, task prioritization, and project tracking using Jira and
+            Confluence in an agile environment.</li>
+          <li>Fostered strong collaboration across the backend and design teams to ensure feature completeness and
+            technical feasibility.</li>
+        </ul>
+      </article>
+
+      <article class="job-title">
+        <div class="job-header">
+          <strong>Software Engineer (Part-time)</strong> |
+          <a href="https://www.musala.com/" target="_blank" rel="noopener noreferrer"
+            class="company-link company-name">Musala Soft</a>
+          <span class="job-period">| Sofia, BG | Dec 2021 - Sep 2022</span>
+        </div>
+        <ul>
+          <li>Developed mobile applications and websites using React and React Native.</li>
+          <li>Implemented reusable UI components, improving development efficiency and code quality.</li>
+          <li>Assisted team members in enhancing their coding practices and development skills.</li>
+        </ul>
+      </article>
+
+      <article class="job-title">
+        <div class="job-header">
+          <strong>React Native Developer</strong> |
+          <a href="https://expandcart.com/" target="_blank" rel="noopener noreferrer"
+            class="company-link company-name">ExpandCart</a>
+          <span class="job-period">| Cairo, EG | Dec 2021-Sept 2022 (Part-time)</span>
+          <span class="job-period">Dec 2020 - Dec 2021 (full-time)</span>
+        </div>
+        <ul>
+          <li>Delivered and deployed high-performance mobile applications, contributing to the overall user experience
+            and interface.</li>
+          <li>Implemented reusable UI components and optimized mobile applications for performance and scalability.</li>
+          <li>Collaborated with stakeholders to address project requirements and ensure the timely delivery of mobile
+            app solutions.</li>
+        </ul>
+      </article>
+
+      <article class="job-title">
+        <div class="job-header">
+          <strong>React Native Developer</strong> |
+          <a href="https://www.evision-eg.com/" target="_blank" rel="noopener noreferrer"
+            class="company-link company-name">Evision</a>
+          <span class="job-period">| Cairo, EG | Feb 2020 - Dec 2020</span>
+        </div>
+        <ul>
+          <li>Worked on mobile app development using React Native, contributing to building intuitive, high-performance
+            applications.</li>
+          <li>Collaborated with team members to ensure smooth integration of app features and shared knowledge of best
+            practices.</li>
+        </ul>
+      </article>
+
+      <article class="job-title">
+        <div class="job-header">
+          <strong>React Native Developer</strong> |
+          <span class="company-name">X_Cortex</span>
+          <span class="job-period">| Gharbia, EG | Sep 2019 - Feb 2020</span>
+        </div>
+        <ul>
+          <li>Developed mobile applications, focusing on reusable components and creating user-friendly experiences for
+            end-users.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="hidden" role="tabpanel" aria-labelledby="mission3" hidden>
+      <h2 class="section-title">Technical Skills</h2>
+      <ul>
+        <li><strong>Languages:</strong> JavaScript, TypeScript</li>
+        <li><strong>Mobile Development:</strong> React Native, Native Modules</li>
+        <li><strong>Markup & Styling:</strong> HTML, CSS, SASS</li>
+        <li><strong>Frontend Frameworks:</strong> React</li>
+        <li><strong>State Management:</strong> Redux, MobX, Context API, Redux-Saga, Redux-thunk</li>
+        <li><strong>API Integration:</strong> REST APIs, GraphQL, Firebase, React-query, RTK-Query</li>
+        <li><strong>Testing:</strong> Jest, React Testing Library, Enzyme</li>
+        <li><strong>CI/CD:</strong> Jenkins, GitLab CI/CD</li>
+        <li><strong>Version Control:</strong> Git, GitLab, Bitbucket, GitHub</li>
+        <li><strong>Project Management Tools:</strong> Jira, Confluence</li>
+        <li><strong>UI Libraries:</strong> Material-UI (MUI), Styled-Components</li>
+      </ul>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section id="soft-skills" class="hidden" role="tabpanel" aria-labelledby="mission4" hidden>
+      <h2 class="section-title">Soft Skills</h2>
+      <ul>
+        <li><strong>Leadership & Team Management:</strong> Proven ability to lead and mentor development teams,
+          fostering an environment of growth, collaboration, and innovation. Skilled in aligning individual and team
+          goals with organizational objectives.</li>
+        <li><strong>Cross-Departmental Collaboration:</strong> Experienced in working closely with product managers,
+          designers, and back-end teams to ensure cohesive project delivery and alignment with overall business goals.
+        </li>
+        <li><strong>Project Management & Organization:</strong> Adept at managing project timelines, coordinating team
+          efforts, and ensuring projects are delivered on time with high quality.</li>
+        <li><strong>Communication & Stakeholder Management:</strong> Excellent verbal and written communication skills,
+          ensuring clear and effective communication with team members, stakeholders, and executives.</li>
+        <li><strong>Problem-Solving & Decision-Making:</strong> Strong problem-solving abilities, able to analyze
+          complex issues, make informed decisions, and implement effective solutions while keeping the team motivated
+          and focused.</li>
+        <li><strong>Adaptability & Resilience:</strong> Comfortable leading teams in fast-paced, dynamic environments,
+          adapting quickly to changing requirements while maintaining team productivity.</li>
+        <li><strong>Conflict Resolution:</strong> Adept at mediating team conflicts and resolving challenges to maintain
+          a cohesive and productive team environment.</li>
+      </ul>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="hidden" role="tabpanel" aria-labelledby="mission5" hidden>
+      <h2 class="section-title">Education</h2>
+      <p><strong>B.Sc. in Computer Science</strong><br>
+        <strong>University of Mansoura, Egypt</strong><br>
+        <strong>2015 - 2019</strong>
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="hidden" role="tabpanel" aria-labelledby="mission6" hidden>
+      <h2 class="section-title">Projects</h2>
+
+      <article class="project-item">
+        <span class="project-title"><strong> Digital Banking App</strong></span>
+        <p>Played a key role in transforming the <strong>Confidential Digital Banking App</strong> into an intuitive and
+          high-performing platform, applying front-end development expertise to ensure a seamless and secure user
+          experience while driving project success.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://apps.apple.com/eg/app/riyad-bank-app/id6451439906" target="_blank" rel="noopener noreferrer"
+          class="project-title"><strong>Riyad Bank App</strong></a>
+        <p>Integral in shaping the app into a user-friendly and efficient tool for customers, leveraging expertise in
+          front-end development to drive project success.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://healthone.be/healthonenova/" target="_blank" rel="noopener noreferrer"
+          class="project-title"><strong>HealthOne NOVA</strong></a>
+        <p>Developed a healthcare cloud web app for the Belgium government, featuring user authentication, consultation,
+          medication tracking, vaccination, messaging, and payment processing.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://www.tamm.abudhabi/wb/hra/apply-for-job-vacancy/login" target="_blank" rel="noopener noreferrer"
+          class="project-title"><strong>TAMM Portal (Human Resources Authority)</strong></a>
+        <p>Developed a human resources module cloud web app for the UAE, including user authentication, job
+          applications, and application status tracking.</p>
+      </article>
+
+      <article class="project-item">
+        <span class="project-title"><strong>E-commerce Store Template</strong></span>
+        <p>Developed an e-commerce template for ExpandCart, with features like user authentication, social logins, cart
+          management, and WebView payment, enabling unique store setups.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://play.google.com/store/apps/details?id=com.tsoft.noonmar&pcampaignid=web_share" target="_blank"
+          rel="noopener noreferrer" class="project-title"><strong>Noonmar App</strong></a>
+        <p>Developed an eCommerce app for noonmar.com, featuring user authentication, social logins, cart operations,
+          and WebView payment.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://play.google.com/store/apps/details?id=com.evisionmaintenanceapp&pcampaignid=web_share"
+          target="_blank" rel="noopener noreferrer" class="project-title"><strong>Maintenance App</strong></a>
+        <p>Developed a maintenance app for the E-vision cleaning system, streamlining repair tracking and request
+          management.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://drive.google.com/file/d/1rT8cC6RkCrLXAmOYPqLr3iFtr9cc5I31/view" target="_blank"
+          rel="noopener noreferrer" class="project-title"><strong>Auction App</strong></a>
+        <p>Developed an online auction app for selling cars with real-time bidding features.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" rel="noopener noreferrer"
+          class="project-title"><strong>Nile School Parent App</strong></a>
+        <p>Developed an app for tracking student attendance and sending notifications.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" rel="noopener noreferrer"
+          class="project-title"><strong>Baby Care App</strong></a>
+        <p>Developed an app for managing babysitting services, including chat, booking, and payments.</p>
+      </article>
+
+      <article class="project-item">
+        <a href="https://github.com/saadelsabahy/smartLab" target="_blank" rel="noopener noreferrer"
+          class="project-title"><strong>Smart Lab</strong></a>
+        <p>Developed an app to control lab devices and manage attendance, improving management efficiency and data
+          synchronization.</p>
+      </article>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages" class="hidden" role="tabpanel" aria-labelledby="mission7" hidden>
+      <h2 class="section-title">Languages</h2>
+      <ul>
+        <li><strong>Arabic:</strong> Fluent (Reading, Writing, Speaking)</li>
+        <li><strong>English:</strong> Very Good (Reading, Writing, Speaking)</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    // Function to show sections with smooth transitions
+    function showSection(id, button) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.container > section');
+      sections.forEach((section) => {
+        section.classList.remove('visible');
+        section.classList.add('hidden');
+        section.setAttribute('hidden', '');
+      });
+
+      // Deselect all buttons
+      const buttons = document.querySelectorAll('.button');
+      buttons.forEach((btn) => {
+        btn.classList.remove('selected');
+        btn.setAttribute('aria-selected', 'false');
+      });
+
+      // Show the selected section
+      const section = document.getElementById(id);
+      section.classList.remove('hidden');
+      section.removeAttribute('hidden');
+      // Trigger reflow to enable transition
+      void section.offsetWidth;
+      section.classList.add('visible');
+
+      // Select the clicked button
+      button.classList.add('selected');
+      button.setAttribute('aria-selected', 'true');
+
+      // Focus the section for keyboard users
+      section.focus();
+
+      // Update URL without reloading
+      history.pushState(null, '', `#${id}`);
+    }
+
+    // Handle back/forward navigation
+    window.addEventListener('popstate', function () {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        const button = document.querySelector(`button[aria-controls="${hash}"]`);
+        if (button) {
+          showSection(hash, button);
+        }
+      }
+    });
+
+    // Set the first mission as opened by default
+    document.addEventListener('DOMContentLoaded', function () {
+      // Check for hash in URL
+      const hash = window.location.hash.substring(1);
+      if (hash && document.getElementById(hash)) {
+        const button = document.querySelector(`button[aria-controls="${hash}"]`);
+        if (button) {
+          showSection(hash, button);
+          return;
         }
       }
 
-      // Set the first mission as opened by default
-      document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('mission1').classList.add('selected');
-        document.getElementById('about').classList.add('visible');
-        
-        // Improve touch experience
-        document.querySelectorAll('a, button').forEach(el => {
-          el.style.webkitTapHighlightColor = 'transparent';
-        });
+      // Default to first section
+      document.getElementById('mission1').classList.add('selected');
+      document.getElementById('mission1').setAttribute('aria-selected', 'true');
+      document.getElementById('about').classList.add('visible');
+      document.getElementById('about').removeAttribute('hidden');
+
+      // Improve touch experience
+      document.querySelectorAll('a, button').forEach(el => {
+        el.style.webkitTapHighlightColor = 'transparent';
       });
-    </script>
-  </body>
+    });
+
+    // Keyboard navigation for tabs
+    document.addEventListener('keydown', function (e) {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const currentTab = document.querySelector('[role="tab"][aria-selected="true"]');
+      let index = tabs.indexOf(currentTab);
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        index = (index + 1) % tabs.length;
+        tabs[index].focus();
+        tabs[index].click();
+        e.preventDefault();
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        index = (index - 1 + tabs.length) % tabs.length;
+        tabs[index].focus();
+        tabs[index].click();
+        e.preventDefault();
+      } else if (e.key === 'Home') {
+        tabs[0].focus();
+        tabs[0].click();
+        e.preventDefault();
+      } else if (e.key === 'End') {
+        tabs[tabs.length - 1].focus();
+        tabs[tabs.length - 1].click();
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+
 </html>
