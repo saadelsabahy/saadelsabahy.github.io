@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Saad Elsabahy - Frontend Team Lead</title>
     <!-- Link to Google Fonts for 'Orbitron' -->
     <link
@@ -20,36 +20,42 @@
         background-color: #1b1b1b;
         color: #00ff00;
         font-family: 'Orbitron', sans-serif;
-        padding: 20px;
+        padding: 15px;
         text-align: center;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
       }
 
       h1 {
-        font-size: 32px;
-        margin-bottom: 20px;
+        font-size: clamp(24px, 6vw, 32px);
+        margin-bottom: 15px;
+        word-break: break-word;
       }
 
       .container {
         border: 3px solid #00ff00;
-        padding: 20px;
-        max-width: 800px;
+        padding: 15px;
+        max-width: min(800px, 100%);
         margin: 0 auto;
         background-color: black;
+        overflow: hidden;
       }
 
       .button {
         background-color: #00ff00;
         color: black;
         border: none;
-        padding: 10px 15px;
-        margin: 8px 5px;
+        padding: 10px 12px;
+        margin: 5px;
         cursor: pointer;
-        font-size: 14px;
+        font-size: clamp(12px, 3vw, 14px);
         transition: all 0.3s ease;
         font-family: 'Orbitron', sans-serif;
         white-space: nowrap;
         transform: translateZ(0);
         will-change: transform;
+        flex: 1 0 auto;
+        min-width: 120px;
       }
 
       .button:hover,
@@ -74,19 +80,21 @@
       ul {
         list-style-type: none;
         padding-left: 0;
-        margin: 20px 0;
+        margin: 15px 0;
       }
 
       ul li {
         margin-bottom: 10px;
         text-align: left;
         line-height: 1.5;
+        word-break: break-word;
       }
 
       p {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         text-align: left;
         line-height: 1.5;
+        word-break: break-word;
       }
 
       @keyframes glitch {
@@ -107,15 +115,17 @@
 
       /* Marquee Title */
       marquee {
-        font-size: 24px;
-        margin-bottom: 20px;
+        font-size: clamp(16px, 5vw, 24px);
+        margin-bottom: 15px;
         color: #00ff00;
+        overflow: hidden;
       }
 
       a {
         color: #00ff00;
         text-decoration: none;
         transition: color 0.3s ease;
+        word-break: break-all;
       }
 
       a:hover {
@@ -125,15 +135,15 @@
 
       /* Professional, gaming-inspired styling */
       .section-title {
-        font-size: 28px;
+        font-size: clamp(20px, 6vw, 28px);
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         color: #00ff00;
       }
 
       p,
       ul li {
-        font-size: 16px;
+        font-size: clamp(14px, 4vw, 16px);
         color: #cccccc;
       }
 
@@ -156,7 +166,7 @@
 
       .job-period {
         color: #cccccc;
-        font-size: 14px;
+        font-size: clamp(12px, 3vw, 14px);
       }
 
       .project-item {
@@ -181,6 +191,7 @@
         text-decoration: none;
         transition: all 0.3s ease;
         display: inline-block;
+        word-break: break-all;
       }
 
       .company-link:hover {
@@ -188,79 +199,77 @@
         text-decoration: underline;
       }
 
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 26px;
-        }
-
-        .container {
-          padding: 15px;
-          max-width: 100%;
-        }
-
+      /* Improved touch targets */
+      @media (pointer: coarse) {
         .button {
-          font-size: 12px;
-          padding: 8px 12px;
+          padding: 12px 15px;
+          min-width: 140px;
         }
-
-        p,
-        ul li {
-          font-size: 15px;
-        }
-
-        marquee {
-          font-size: 20px;
-        }
-
-        .section-title {
-          font-size: 24px;
+        
+        a, .company-link {
+          min-height: 44px;
+          display: inline-flex;
+          align-items: center;
         }
       }
 
-      @media (max-width: 480px) {
-        h1 {
-          font-size: 22px;
+      /* Very small devices */
+      @media (max-width: 360px) {
+        body {
+          padding: 10px;
         }
-
+        
+        .container {
+          padding: 10px;
+        }
+        
         .button {
-          font-size: 11px;
-          padding: 6px 10px;
-          margin: 5px 3px;
+          min-width: 100px;
+          padding: 8px 10px;
+          margin: 3px;
         }
+      }
 
-        p,
-        ul li {
-          font-size: 14px;
+      /* Center Contact & Summary on mobile */
+      @media (max-width: 600px) {
+        #about {
+          text-align: center;
         }
-
-        marquee {
-          font-size: 18px;
+        
+        #about p {
+          text-align: center;
         }
-
-        .section-title {
-          font-size: 20px;
+        
+        #about ul {
+          text-align: center;
+          padding-left: 0;
         }
-
-        .job-header {
-          flex-direction: column;
-          align-items: flex-start;
+        
+        #about ul li {
+          text-align: center;
+          display: inline-block;
+          width: 100%;
+        }
+        
+        #about a {
+          display: inline-block;
+          margin: 5px 0;
         }
       }
     </style>
   </head>
   <body>
     <!-- Marquee Title -->
-    <marquee>Welcome to Saad Elsabahy's Professional Portfolio</marquee>
+    <marquee behavior="scroll" direction="left">Welcome to Saad Elsabahy's Professional Portfolio</marquee>
 
     <h1>Saad Elsabahy</h1>
 
     <div class="container">
-      <p>Frontend Team Lead with robust technical background in React | React Native  and leadership experience</p>
+      <p>Frontend Team Lead with robust technical background in React | React Native and leadership experience</p>
 
       <div class="buttons-container">
         <button class="button selected" id="mission1" onclick="toggleSection('about', this)">
-          Contact & Summary
+          Contact
         </button>
         <button class="button" id="mission2" onclick="toggleSection('experience', this)">
           Work Experience
@@ -284,7 +293,7 @@
 
       <!-- About Section (Opened by Default) -->
       <div id="about" class="visible">
-        <h2 class="section-title">Contact & Summary</h2>
+        <h2 class="section-title">Contact</h2>
         <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
         <p>
           <strong>Contact:</strong>
@@ -292,12 +301,12 @@
           <a href="mailto:saadelsabahy11@gmail.com">saadelsabahy11@gmail.com</a>
         </p>
         <p>
-          <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/">LinkedIn Profile</a> | 
-          <a href="https://github.com/saadelsabahy">GitHub Profile</a>
+          <a href="https://www.linkedin.com/in/saad-elsabahy-095699198/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a> | 
+          <a href="https://github.com/saadelsabahy" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
         </p>
-<!--         
-        <h3>Summary</h3> -->
-        <!-- <p>Frontend React/React Native Team Lead with a robust technical background and a proven track record in leadership. I possess extensive experience in managing development teams, spearheading innovative projects, and delivering high-quality web and mobile applications. Highly skilled in mentoring developers and fostering collaboration across departments, I ensure timely project delivery while maintaining software excellence. Recognized for my expertise in JavaScript, React, and modern development methodologies, I am eager to lead teams and contribute to transformative projects that require both technical acumen and effective leadership.</p> -->
+        
+        <!-- <h3>Summary</h3>
+        <p>Frontend React/React Native Team Lead with a robust technical background and a proven track record in leadership. I possess extensive experience in managing development teams, spearheading innovative projects, and delivering high-quality web and mobile applications. Highly skilled in mentoring developers and fostering collaboration across departments, I ensure timely project delivery while maintaining software excellence. Recognized for my expertise in JavaScript, React, and modern development methodologies, I am eager to lead teams and contribute to transformative projects that require both technical acumen and effective leadership.</p> -->
       </div>
 
       <!-- Experience Section -->
@@ -307,7 +316,7 @@
         <div class="job-title">
           <div class="job-header">
             <strong>Frontend Team Lead</strong> |
-            <a href="https://www.alrajhibank.com.sa/" target="_blank" class="company-link company-name">Alrajhi Bank</a>
+            <a href="https://www.alrajhibank.com.sa/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Alrajhi Bank</a>
             <span class="job-period">| Riyadh, KSA | Jan 2024 - Present</span>
           </div>
           <ul>
@@ -323,7 +332,7 @@
         <div class="job-title">
           <div class="job-header">
             <strong>Frontend Team Lead</strong> |
-            <a href="https://www.riyadbank.com/" target="_blank" class="company-link company-name">Riyad Bank</a>
+            <a href="https://www.riyadbank.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Riyad Bank</a>
             <span class="job-period">| Riyadh, KSA | Sep 2023 - Jan 2024</span>
           </div>
           <ul>
@@ -339,7 +348,7 @@
         <div class="job-title">
           <div class="job-header">
             <strong>Senior Frontend Developer</strong> |
-            <a href="https://www.cegedim.com/" target="_blank" class="company-link company-name">Cegedim</a>
+            <a href="https://www.cegedim.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Cegedim</a>
             <span class="job-period">| Cairo, EG | May 2022 - Sep 2023</span>
           </div>
           <ul>
@@ -353,7 +362,7 @@
         <div class="job-title">
           <div class="job-header">
             <strong>Software Engineer (Part-time)</strong> |
-            <a href="https://www.musala.com/" target="_blank" class="company-link company-name">Musala Soft</a>
+            <a href="https://www.musala.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Musala Soft</a>
             <span class="job-period">| Sofia, BG | Dec 2021 - Sep 2022</span>
           </div>
           <ul>
@@ -366,7 +375,7 @@
         <div class="job-title">
           <div class="job-header">
             <strong>React Native Developer</strong> |
-            <a href="https://expandcart.com/" target="_blank" class="company-link company-name">ExpandCart</a>
+            <a href="https://expandcart.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">ExpandCart</a>
             <span class="job-period">| Cairo, EG | Dec 2021-Sept 2022 (Part-time)</span>
             <span class="job-period">Dec 2020 - Dec 2021 (full-time)</span>
           </div>
@@ -380,7 +389,7 @@
         <div class="job-title">
           <div class="job-header">
             <strong>React Native Developer</strong> |
-            <a href="https://www.evision-eg.com/" target="_blank" class="company-link company-name">Evision</a>
+            <a href="https://www.evision-eg.com/" target="_blank" rel="noopener noreferrer" class="company-link company-name">Evision</a>
             <span class="job-period">| Cairo, EG | Feb 2020 - Dec 2020</span>
           </div>
           <ul>
@@ -451,17 +460,17 @@
         </div>
         
         <div class="project-item">
-          <a href="https://apps.apple.com/eg/app/riyad-bank-app/id6451439906" target="_blank" class="project-title"><strong>Riyad Bank App</strong></a>
+          <a href="https://apps.apple.com/eg/app/riyad-bank-app/id6451439906" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Riyad Bank App</strong></a>
           <p>Integral in shaping the app into a user-friendly and efficient tool for customers, leveraging expertise in front-end development to drive project success.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://healthone.be/healthonenova/" target="_blank" class="project-title"><strong>HealthOne NOVA</strong></a>
+          <a href="https://healthone.be/healthonenova/" target="_blank" rel="noopener noreferrer" class="project-title"><strong>HealthOne NOVA</strong></a>
           <p>Developed a healthcare cloud web app for the Belgium government, featuring user authentication, consultation, medication tracking, vaccination, messaging, and payment processing.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://www.tamm.abudhabi/wb/hra/apply-for-job-vacancy/login" target="_blank" class="project-title"><strong>TAMM Portal (Human Resources Authority)</strong></a>
+          <a href="https://www.tamm.abudhabi/wb/hra/apply-for-job-vacancy/login" target="_blank" rel="noopener noreferrer" class="project-title"><strong>TAMM Portal (Human Resources Authority)</strong></a>
           <p>Developed a human resources module cloud web app for the UAE, including user authentication, job applications, and application status tracking.</p>
         </div>
         
@@ -471,32 +480,32 @@
         </div>
         
         <div class="project-item">
-          <a href="https://play.google.com/store/apps/details?id=com.tsoft.noonmar&pcampaignid=web_share" target="_blank" class="project-title"><strong>Noonmar App</strong></a>
+          <a href="https://play.google.com/store/apps/details?id=com.tsoft.noonmar&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Noonmar App</strong></a>
           <p>Developed an eCommerce app for noonmar.com, featuring user authentication, social logins, cart operations, and WebView payment.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://play.google.com/store/apps/details?id=com.evisionmaintenanceapp&pcampaignid=web_share" target="_blank" class="project-title"><strong>Maintenance App</strong></a>
+          <a href="https://play.google.com/store/apps/details?id=com.evisionmaintenanceapp&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Maintenance App</strong></a>
           <p>Developed a maintenance app for the E-vision cleaning system, streamlining repair tracking and request management.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://drive.google.com/file/d/1rT8cC6RkCrLXAmOYPqLr3iFtr9cc5I31/view" target="_blank" class="project-title"><strong>Auction App</strong></a>
+          <a href="https://drive.google.com/file/d/1rT8cC6RkCrLXAmOYPqLr3iFtr9cc5I31/view" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Auction App</strong></a>
           <p>Developed an online auction app for selling cars with real-time bidding features.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" class="project-title"><strong>Nile School Parent App</strong></a>
+          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Nile School Parent App</strong></a>
           <p>Developed an app for tracking student attendance and sending notifications.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" class="project-title"><strong>Baby Care App</strong></a>
+          <a href="https://apps.apple.com/us/app/nes-parent/id1516480211" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Baby Care App</strong></a>
           <p>Developed an app for managing babysitting services, including chat, booking, and payments.</p>
         </div>
         
         <div class="project-item">
-          <a href="https://github.com/saadelsabahy/smartLab" target="_blank" class="project-title"><strong>Smart Lab</strong></a>
+          <a href="https://github.com/saadelsabahy/smartLab" target="_blank" rel="noopener noreferrer" class="project-title"><strong>Smart Lab</strong></a>
           <p>Developed an app to control lab devices and manage attendance, improving management efficiency and data synchronization.</p>
         </div>
       </div>
@@ -536,6 +545,9 @@
           void section.offsetWidth;
           section.classList.add('visible');
           button.classList.add('selected');
+          
+          // Smooth scroll to section
+          section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       }
 
@@ -543,6 +555,11 @@
       document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('mission1').classList.add('selected');
         document.getElementById('about').classList.add('visible');
+        
+        // Improve touch experience
+        document.querySelectorAll('a, button').forEach(el => {
+          el.style.webkitTapHighlightColor = 'transparent';
+        });
       });
     </script>
   </body>
